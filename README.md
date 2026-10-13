@@ -1,2 +1,2 @@
 # hamming_encoder_decoder-using-licensed-tools
-Hamming (13,8) SEC-DED encoder/decoder chip design that corrects single-bit and detects double-bit errors in data read from memory, taken from RTL through DFT (scan, EDT, ATPG, IJTAG) and place &amp; route.
+a Hamming (13,8) encoder and decoder chip design that implements Single Error Correction and Double Error Detection (SEC-DED). It protects data stored in memory: when data is exchanged with memory banks, a bit of the word at an address can get flipped. This design corrects any single flipped bit and flags double-bit errors, so the data read back stays reliable. Async FIFOs across three clock domains handle the data transfer, and the design is carried through synthesis, DFT insertion and physical implementation.
