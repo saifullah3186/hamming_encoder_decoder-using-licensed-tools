@@ -1,0 +1,224 @@
+//  sub-command: set_context patterns -scan 
+//  sub-command: read_verilog edt/created_edt_top_gate.v 
+//  sub-command: read_cell_library libs/slow_vdd1v0.mdt 
+//  Reading DFT Library file libs/slow_vdd1v0.mdt
+//  Finished reading file libs/slow_vdd1v0.mdt
+//  sub-command: set_current_design 
+//  Note: Top design is 'hamming_top_edt_top'.
+//  Warning: 57 cases: Unused net in DFT library model
+//  Warning: 25 cases: Undriven net in netlist module
+//  Warning: 56 cases: Net in netlist not connected
+//  Note: Issue set_current_design with the -show_elaboration_warnings option to see more details about previous warnings
+//  sub-command: dofile edt/created_edt.dofile 
+//  command: set_edt_instances -edt_logic_top hamming_top_edt_i
+//  Found edt_logic_top at path: "/hamming_top_edt_i".
+//  command: set_edt_instances -decompressor  hamming_top_edt_decompressor_i
+//  Found decompressor at path: "/hamming_top_edt_i/hamming_top_edt_decompressor_i".
+//  command: set_edt_instances -compactor     hamming_top_edt_compactor_i
+//  Found compactor at path: "/hamming_top_edt_i/hamming_top_edt_compactor_i".
+//  command: add_scan_groups grp1 edt/created_edt.testproc
+//  command: add_scan_chains -internal chain0 grp1 {/hamming_top_i/ts_si[0]} {/hamming_top_i/ts_so[0]}
+//  command: add_scan_chains -internal chain1 grp1 {/hamming_top_i/ts_si[1]} {/hamming_top_i/ts_so[1]}
+//  command: add_scan_chains -internal chain2 grp1 {/hamming_top_i/ts_si[2]} {/hamming_top_i/ts_so[2]}
+//  command: add_scan_chains -internal chain3 grp1 {/hamming_top_i/ts_si[3]} {/hamming_top_i/ts_so[3]}
+//  command: add_scan_chains -internal chain4 grp1 {/hamming_top_i/ts_si[4]} {/hamming_top_i/ts_so[4]}
+//  command: add_scan_chains -internal chain5 grp1 {/hamming_top_i/ts_si[5]} {/hamming_top_i/ts_so[5]}
+//  command: add_clocks 0 {{uio[3]}}
+//  command: add_clocks 1 {{uio[2]}}
+//  command: add_clocks 1 {{uio[1]}}
+//  command: add_clocks 1 {{uio[0]}}
+//  command: add_clocks 0 edt_clock
+//  command: add_pin_constraints edt_clock C0
+//  command: set_edt_options -channels 1 -bypass_chains 1 -initialization_cycles 17  -bypass_logic on -clocking edge -longest_chain_range 2 21 -reset_signal off -pulse_edt_before_shift_clocks off -ip_version 8 -decompressor_size 10 -injectors_per_channel 5 -scan_chains 6 -xor_taps_per_chain 3 -compactor_type xpress -lockup on -retime_chain_boundaries off -bypass_chain_change_edge on
+//  command: set_decompressor_connections -channel 1 -taps 1  3  9  7  5 
+//  command: set_edt_pins output_channels -compactor_pipeline_stages 1
+//  command: set_edt_pins output_channel -change_edge_at_compactor_output trailing_edge_of_edt_clock
+//  command: set_decompressor_connections -chain chain0 -taps 1 5 6
+//  command: set_decompressor_connections -chain chain1 -taps 2 7 9
+//  command: set_decompressor_connections -chain chain2 -taps 4 8 10
+//  command: set_decompressor_connections -chain chain3 -taps 1 9 10
+//  command: set_decompressor_connections -chain chain4 -taps 2 5 8
+//  command: set_decompressor_connections -chain chain5 -taps 3 4 7
+//  command: set_bypass_chains -bypass_chain_number 1 -edt_chains chain0 chain1 chain2 chain3 chain4 chain5
+//  command: set_mask_register -input_channel_mask_register_sizes   1 7
+//  command: set_mask_decoder_connections -mode_bit            1 7               
+//  command: set_mask_decoder_connections -1hot_decoder 1      1 6   1 5   1 4   
+//  command: set_mask_decoder_connections -xor_decoder chain0  1 6               
+//  command: set_mask_decoder_connections -xor_decoder chain1  1 5               
+//  command: set_mask_decoder_connections -xor_decoder chain2  1 4               
+//  command: set_mask_decoder_connections -xor_decoder chain3  1 3               
+//  command: set_mask_decoder_connections -xor_decoder chain4  1 2               
+//  command: set_mask_decoder_connections -xor_decoder chain5  1 1               
+//  sub-command: set_system_mode analysis 
+//  Warning: Rule FN1 violation occurs 81 times
+//  Flattening process completed, cell instances=447, gates=1734, PIs=21, POs=9, CPU time=0.01 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.01 sec.
+//  ---------------------------------------------------------------------------
+//  Begin scan chain identification process, memory elements = 180.
+//  ---------------------------------------------------------------------------
+//  Reading group test procedure file edt/created_edt.testproc.
+//  Begin simulation of load_unload procedure.
+//  Simulation of load_unload procedure completed, CPU time=0.0 sec.
+//  ---------------------------------------------------------------------------
+//  Begin EDT Finder analyses.
+//  ---------------------------------------------------------------------------
+//  Finding EDT logic.
+//  Finding internal scan chains.
+//  EDT Finder completed, EDT blocks=1, scan chains=6, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Chain = chain0 successfully traced with scan_cells = 21.
+//  Chain = chain1 successfully traced with scan_cells = 21.
+//  Chain = chain2 successfully traced with scan_cells = 21.
+//  Chain = chain3 successfully traced with scan_cells = 21.
+//  Chain = chain4 successfully traced with scan_cells = 20.
+//  Chain = chain5 successfully traced with scan_cells = 20.
+//  124 scan cells have been identified in 6 scan chains.
+//  Longest scan chain has 21 scan cells.
+//  Warning: 124 edge-triggered clock ports set to stable high. (D7)
+//  ---------------------------------------------------------------------------
+//  Begin EDT setup and rules checking.
+//  ---------------------------------------------------------------------------
+//  Running EDT Pattern Generation Phase.
+//  EDT setup and rules checking completed, CPU time=0.04 sec.
+//  Warning: EDT initialization cycles increase each pattern size by 81%.
+//  ---------------------------------------------------------------------------
+//  Begin transparent latch checking for 18 latches.
+//  ---------------------------------------------------------------------------
+//  Number transparent latches = 18.
+//  ---------------------------------------------------------------------------
+//  Begin scan clock rules checking.
+//  ---------------------------------------------------------------------------
+//  5 scan clock/set/reset lines have been identified.
+//  All scan clocks successfully passed off-state check.
+//  36 sequential cells passed clock stability checking.
+//  There were 32 clock rule C3 fails (clock may capture data affected by its captured data).
+//  Warning: There were 64 clock rule C4 fails (clock may be affected by its captured data).
+//  Note: Trailing edge triggered device can capture data affected by leading edge.
+//  ---------------------------------------------------------------------------
+//  54 non-scan memory elements are identified.
+//  ---------------------------------------------------------------------------
+//  36 non-scan memory elements are identified as INIT-X. (D5)
+//  18 non-scan memory elements are identified as TLA.    (D5)
+//  ---------------------------------------------------------------------------
+//  10 gates may have an observable X-state. (E5)
+//  Analysis recommends using "set_clock_off_simulation on". It is currently turned off (default value).
+//  sub-command: report_edt_configurations 
+//  
+//  IP version:                    8
+//  Shift cycles:                  38,  21 (internal scan length) + 17 (additional cycles)
+//  External scan channels:        1
+//  Internal scan chains:          6
+//  Masking bits:                  7
+//  Longest chain range:           2 - 21
+//  Decompressor size:             10
+//  Compactor type:                Xpress
+//  Scan cells:                    124
+//  Compression per pattern:       3.26x (ATPG bypass = 1 x 124, EDT = 1 x 38)
+//  Bypass logic:                  On
+//  Clocking:                      edge-sensitive
+//  Compactor pipelining:          1 stage
+//  
+//  sub-command: create_patterns 
+No faults in fault list. Adding all faults...
+// | ------------------------------------------------------------------------------------------------------------------ |
+// |                                             Analyzing the design                                                   |
+// |                                                                                                                    |
+// |      Current clock restriction setting:     Domain_clock (edge interaction)                                        |
+// |                                             (optimal)                                                              |
+// |                                                                                                                    |
+// |            Current abort limit setting:     30                                                                     |
+// |                                Calling:     set_abort_limit 300 100                                                |
+// | ------------------------------------------------------------------------------------------------------------------ |
+// |                                                                                                                    |
+// |               Current sequential depth:     0                                                                      |
+// |               Optimal sequential depth:     3                                                                      |
+// |                                Calling:     set_pattern_type -sequential 3                                         |
+// |                                                                                                                    |
+// | ------------------------------------------------------------------------------------------------------------------ |
+//  ------------------------------------------------------------------------
+//  Simulation performed for #gates = 1734  #faults = 1951
+//  system mode = analysis    pattern source = internal patterns
+//  ------------------------------------------------------------------------
+//  #patterns  test      #faults  #faults    # eff.    # test         process      RE/AU/AAB/EAB
+//  simulated  coverage  in list  detected   patterns  patterns       CPU time
+//   ---        ------      ---       ---      ---       ---          3.33 sec     23/697/193/0
+//   64         70.31%      376      1543       42        42          3.38 sec
+//   ---        ------      ---       ---      ---       ---          5.76 sec     34/706/342/0
+//   70         71.33%      324        29        6        48          5.76 sec
+//  657 faults were identified as detected by implication.
+//  -----------------------------------------------------------------------
+//  Performing redundant fault identification for 376 faults
+//  -----------------------------------------------------------------------
+//  deterministic ATPG invoked with abort limit = 300
+//  # red.    # non-red.   # abort     # remn.   progress   test        process
+//  faults      faults      faults      faults              coverage    CPU time
+//     187          53        136            0   100.00%    94.49%       1.42 sec
+
+                       Statistics Report                      
+                        Stuck-at Faults                       
+--------------------------------------------------------------
+Fault Classes                    #faults         #faults     
+                                 (total)     (total relevant)
+----------------------------  ------------- ------------------
+  FU (full)                        3694            3652      
+  --------------------------  ------------- ------------------
+  UC (uncontrolled)              5 ( 0.14%)      same ( 0.14%)
+  UO (unobserved)              132 ( 3.57%)      same ( 3.61%)
+  DS (det_simulation)         1572 (42.56%)      same (43.04%)
+  DI (det_implication)        1650 (44.67%)      same (45.18%)
+  PU (posdet_untestable)         3 ( 0.08%)      same ( 0.08%)
+  UU (unused)                   40 ( 1.08%)      same ( 1.10%)
+  TI (tied)                     22 ( 0.60%)      same ( 0.60%)
+  RE (redundant)               221 ( 5.98%)      same ( 6.05%)
+  AU (atpg_untestable)          49 ( 1.33%)         7 ( 0.19%)
+--------------------------------------------------------------
+Fault Sub-classes                                             
+  --------------------------                                  
+  AU (atpg_untestable)                                        
+    EDT   (edt_blocks)          42 ( 1.14%)        deleted     
+    PC    (pin_constraints)      1 ( 0.03%)      same ( 0.03%)
+    Unclassified                 6 ( 0.16%)      same ( 0.16%)
+  UC+UO                                                       
+    AAB   (atpg_abort)         137 ( 3.71%)      same ( 3.75%)
+--------------------------------------------------------------
+Coverage                                                      
+  --------------------------                                  
+  test_coverage                     94.50%             95.68% 
+  fault_coverage                    87.26%             88.27% 
+  atpg_effectiveness                96.29%             96.29% 
+--------------------------------------------------------------
+#test_patterns                                             48 
+  #basic_patterns                                           3 
+  #clock_sequential_patterns                               45 
+#simulated_patterns                                        70 
+CPU_time (secs)                                         248.2 
+--------------------------------------------------------------
+
+//  sub-command: report_scan_volume 
+//
+//  -----------------------------------------------------------      
+//  Scan volume report.                                                                              
+//  -------------------                                                                              
+//     channels     : 1                                                                              
+//     shift cycles : 21+17                                                                          
+//  -----------------------------------------------------------      
+//  pattern             # test  # scan                   volume      
+//  type              patterns   loads  (cell loads or unloads)      
+//  ----------------  --------  ------  -----------------------      
+//  chain_test               9       9                      342      
+//  basic                    3       3                      114      
+//  clock_sequential        45      45                     1710      
+//  ----------------  --------  ------  -----------------------      
+//  total                   57      57                     2166      
+//
+//  sub-command: write_flat_model edt/patterns_edt_flat_model.fit -rep 
+//  sub-command: write_patterns patterns_edt/serial_patterns.v -verilog -serial -rep 
+//  Note: Number of chain test patterns saved = 9.
+//  sub-command: write_patterns patterns_edt/parallel_patterns.v -verilog -parallel -rep 
+//  Note: Number of chain test patterns saved = 9.
+//  sub-command: write_patterns patterns_edt/pattern_edt.ascii -ascii -parallel -rep 
+//  Note: Number of chain test patterns saved = 9.
+//  command: exit 
